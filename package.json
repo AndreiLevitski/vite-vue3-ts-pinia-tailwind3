@@ -1,0 +1,86 @@
+{
+  "name": "my-vue-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "format": "prettier .  --write"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.4.0",
+    "pinia": "^2.0.9",
+    "vue": "^3.2.25",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "@vitejs/plugin-vue": "^2.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.7.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.3.0",
+    "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.17",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vue-tsc": "^0.29.8"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": true,
+    "trailingComma": "none",
+    "htmlWhitespaceSensitivity": "ignore",
+    "vueIndentScriptAndStyle": true
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-recommended",
+      "eslint:recommended",
+      "@vue/typescript/recommended",
+      "@vue/prettier"
+    ],
+    "rules": {
+      "vue/order-in-components": [
+        "error",
+        {
+          "order": [
+            "name",
+            "mixins",
+            [
+              "props",
+              "propsData"
+            ],
+            "data",
+            "LIFECYCLE_HOOKS",
+            "watch",
+            "computed",
+            "methods"
+          ]
+        }
+      ],
+      "vue/require-prop-type-constructor": "off",
+      "vue/require-default-prop": "off"
+    },
+    "globals": {
+      "defineProps": "readonly",
+      "defineEmits": "readonly",
+      "defineExpose": "readonly",
+      "withDefaults": "readonly"
+    }
+  }
+}
