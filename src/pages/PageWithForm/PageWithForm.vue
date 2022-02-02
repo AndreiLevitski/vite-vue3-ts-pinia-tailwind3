@@ -2,21 +2,42 @@
 	<div>Page with form</div>
 	<div class="container mx-auto w-full flex">
 		<div class="flex flex-col max-w-md gap-4">
-			<input class="custom-input" type="text" placeholder="Text input" />
+			<Form.Input v-model="inputValue" placeholder="Text input" />
 
-			<select class="custom-input">
-				<option>Select some option</option>
-				<option>Option 1</option>
-				<option>Option 2</option>
-			</select>
+			<Form.Select v-model="selectValue" :items="items"/>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+	import { ref, customRef, computed } from 'vue'
+	import * as Form from '../../components/FormComponents'
 
-<style lang="css" scoped>
-	.custom-input {
-		@apply rounded focus:border-red-500 focus:shadow-sm focus:shadow-red-600 focus:ring-red-600;
-	}
-</style>
+	const selectValue = customRef((track, trigger) => ({
+		get: () => {
+			return []
+		},
+		set: (v) => {
+			console.log(v)
+		}
+	}))
+	const items = ref([
+		{
+			name: 'Option one',
+			value: 11
+		},
+		{
+			name: 'Option two',
+			value: 22
+		}
+	])
+
+	const inputValue = computed({
+		get: () => {
+			return ''
+		},
+		set: (v) => {
+			console.log(v)
+		}
+	})
+</script>

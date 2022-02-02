@@ -12,3 +12,19 @@ body {
     flex: 1;
     @apply antialiased;
 }
+
+.form-input {
+    @apply rounded focus:border-main-50 focus:shadow-sm focus:shadow-main-200 focus:ring-main-200 h-[55px];
+}
+
+select:invalid {
+    @apply text-xs font-light text-placeholder;
+}
+
+.form-input::placeholder {
+    @apply text-xs font-light text-placeholder;
+}
+
+.form-input.error {
+    @apply focus:border-error focus:shadow-sm focus:shadow-error focus:ring-error
+}
